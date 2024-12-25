@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Wish for Nakul</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #1a1a2e;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .message {
+            animation: fadeInOut 4s forwards;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            10%, 90% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+
+        .wish-card {
+            display: none;
+            background: url('uandme.jpg') no-repeat center center;
+            background-size: contain;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin-top: 250px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s forwards;
+            text-align: justify;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .response-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .response-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #28a745, #155724);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 5px;
+        }
+
+        .response-button:hover {
+            background: linear-gradient(135deg, #155724, #28a745);
+        }
+
+        .response-button.no-button {
+            background: linear-gradient(135deg, #d9534f, #b21f2d);
+        }
+
+        .response-button.no-button:hover {
+            background: linear-gradient(135deg, #b21f2d, #d9534f);
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #f0e68c;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 class="message" id="firstMessage">Hi Nakul
+            <video autoplay muted loop>
+                <source src="newyear.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br> Happy New Year!
+        </h1>
+
+        <div class="wish-card" id="wishMessage">
+            <h2 style="padding-top:450px;font-size:13px;">Nakul, Happy New Year 🎉✨ Mujhe umeed nahi thi ki hum is saal ki shuruaat saath kar payenge, par dekho, hum saath hain! 🤗❤️ Koi baat nahi, shuruaat kaise bhi ho, jo zaroori hai ki hum saath hain. Pichla saal mere liye isliye khaas tha kyunki aap mujhe mile, lekin aapke liye thoda bura tha. 😔💔 Jo ho gaya, usko main nahi badal sakti, lekin main hamesha aapke liye rahungi. 💪🌟 Jab bhi aapko meri zaroorat ho, main aapke paas rahungi, chahe kuch bhi ho jaye.</h2>
+            <h3 style="font-size:13px;">Mujhe aaj bhi aapse kuch nahi chahiye, bas itna chahiye ki aap hamesha khush rahein, chahe kisi ke saath rahein. 😊💖</h3>
+            <h3 style="font-size:13px;">Bhagwan aapko is saal bahut saari khushiyaan 🎊🥳 aur safalta de. Aur hamesha yaad rahe, jab bhi aapko meri zaroorat ho, main hamesha aapke paas rahungi, bas ek baar keh dena. 🥺🤗 I love you! 😘❤️</h3>
+        </div>
+        <div class="response-buttons" id="responseButtons">
+            <h1>Kya Aap Mujhse Mill Skte Ho?</h1>
+            <button class="response-button" id="yesButton">Yes</button>
+            <button class="response-button no-button" id="noButton">No</button>
+        </div>
+    </div>
+    <footer>Made by your Priya only for you!</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstMessage = document.getElementById('firstMessage');
+            const wishMessage = document.getElementById('wishMessage');
+            const responseButtons = document.getElementById('responseButtons');
+
+            // Show wish card after the first message fades out
+            setTimeout(() => {
+                firstMessage.style.display = 'none';
+                wishMessage.style.display = 'block';
+                responseButtons.style.display = 'block';
+            }, 4000); // Adjusted timing to match animation
+
+            // WhatsApp messages
+            const whatsappNumber = '7973157568';
+            const yesMessage = 'Haan!Mill Skta Hu.';
+            const noMessage = 'Nhi! Beta Kaam Hai Mujhe Nhi Mill skta bacha..';
+
+            document.getElementById('yesButton').addEventListener('click', () => {
+                const encodedMessage = encodeURIComponent(yesMessage);
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            });
+
+            document.getElementById('noButton').addEventListener('click', () => {
+                const encodedMessage = encodeURIComponent(noMessage);
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
